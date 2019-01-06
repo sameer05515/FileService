@@ -190,7 +190,7 @@
                                         <span class="glyphicon" aria-hidden="true">Rename</span>
                                     </button>
 
-                                    <button class="lalChaukor" data-ng-click="openMovePopup(file.filePath,file.parentFile)">
+                                    <button class="lalChaukor" data-ng-click="openMovePopup(file.filePath,file.parentFile,file.name)">
                                         <span class="glyphicon" aria-hidden="true">Move</span>
                                     </button>
                                 </span>
@@ -211,10 +211,12 @@
         <div class="container contentAlertDisplay" data-ng-model="renameFileModel" id="moveFile" title="{{titleOfPdf}}" width="100%"
             height="100%">
 
-            Enter new name for file :<br/>
+            Enter Path for file :<br/>
             <input type="text" data-ng-model="targetFolderPath" width="100%" /><br/>
+            Enter new name for file :<br/>
+            <input type="text" data-ng-model="newmovingFileName" width="100%" /><br/>
 
-            <button class="lalChaukor" data-ng-click="moveFile(FileToBeMovedPath,targetFolderPath)">
+            <button class="lalChaukor" data-ng-click="moveFile(FileToBeMovedPath,targetFolderPath,newmovingFileName)">
                 Move
                 <!-- <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> -->
             </button>

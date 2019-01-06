@@ -8,6 +8,7 @@
 
 	String fileName=request.getParameter("fileName");
 	String targetPath=request.getParameter("targetPath"); 
+	String newName=request.getParameter("newName"); 
 	//String[] extensions = request.getParameterValues("extensions");
 	File f=new File(fileName);
 	File tDir = new File(targetPath);
@@ -15,7 +16,7 @@
 	
 	boolean valid=false;
 	if(tDir.exists()){
-		File fnew=new File(tDir.getAbsolutePath()+File.separator+f.getName());
+		File fnew=new File(tDir.getAbsolutePath()+File.separator+newName);
 		
 		if(!fnew.exists()){
 			if(f.renameTo(fnew)){
@@ -24,7 +25,7 @@
 	            out.println("{\"status\":\"fail\"}");
 	        }
 		}else{
-			out.println("{\"status\":\"fail filename : "+f.getName()+" already exists in  targetpath : "+targetPath+" \"}");
+			out.println("{\"status\":\"fail filename : "+newName+" already exists in  targetpath : "+targetPath+" \"}");
 		}
 		
 		

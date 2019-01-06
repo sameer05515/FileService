@@ -90,12 +90,15 @@ angular
             $scope.FileToBeMovedPath = "";
             $scope.nayyaFileName = "";
             $scope.targetFolderPath = "";
+            $scope.newmovingFileName="";
 
-            $scope.openMovePopup = function (fileKaPath, targetFolderPathh) {
+
+            $scope.openMovePopup = function (fileKaPath, targetFolderPathh,movingFileNametoRenamed) {
                 //var sourceUrl=whichgame.getAttribute("href");
                 //alert("sourceUrl : "+sourceUrl);
                 $scope.FileToBeMovedPath = fileKaPath;
                 $scope.targetFolderPath = targetFolderPathh;
+                $scope.newmovingFileName=movingFileNametoRenamed;
                 // var game = document.getElementById("objectToEmbed");
                 //var clone = game.cloneNode(true);
                 //clone.setAttribute("src", sourceUrl);
@@ -108,7 +111,7 @@ angular
                 });
             };
 
-            $scope.moveFile = function (fileKaPath, nayaFilePath) {
+            $scope.moveFile = function (fileKaPath, nayaFilePath,nayaMovingFileName) {
 
                 if (confirm("Are you sure you want to move File?" + fileKaPath + " \n to new path ? " + nayaFilePath)) {
                     var urrrlll = "http://127.0.0.1:8888/FileService/fileMove.jsp";
@@ -117,7 +120,8 @@ angular
                             url: urrrlll,
                             params: {
                                 fileName: fileKaPath,
-                                targetPath: nayaFilePath
+                                targetPath: nayaFilePath,
+                                newName : nayaMovingFileName
                             }
                         })
                         .success(function (data) {
@@ -125,8 +129,9 @@ angular
 												$scope.errorMessage = ""; */
                             if (data.status == "success") {
                                 alert(
-                                    "sucessfully Renamed file" +
+                                    "sucessfully moved file" +
                                     fileKaPath +
+                                    " with name "+nayaMovingFileName+
                                     " data.status : " +
                                     data.status
                                 );
