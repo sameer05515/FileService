@@ -2,6 +2,7 @@
     <wb-module deploy-name="FileService">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/WebContent/WEB-INF/src"/>
         <property name="context-root" value="FileService"/>
         <property name="java-output-path" value="/FileService/build/classes"/>
     </wb-module>
